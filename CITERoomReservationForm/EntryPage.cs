@@ -24,7 +24,9 @@ namespace CITERoomReservationForm
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            ReservationPage reservationPage = new ReservationPage();
+            reservationPage.Show();
+            this.Hide();
         }
 
         private void backgroundWorker2_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -39,6 +41,14 @@ namespace CITERoomReservationForm
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReservationPage reservationPage = new ReservationPage();
+            reservationPage.Show();
+            this.Hide();
 
         }
     }

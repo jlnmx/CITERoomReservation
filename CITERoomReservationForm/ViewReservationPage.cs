@@ -12,8 +12,8 @@ namespace CITERoomReservationForm
 {
     public partial class ViewReservationPage : Form
     {
-        
-         public ViewReservationPage()
+
+        public ViewReservationPage()
 
         {
 
@@ -29,6 +29,13 @@ namespace CITERoomReservationForm
 
             // Add your event handler code here
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            InformationPage informationPage = new InformationPage();
+            informationPage.Show();
+            this.Hide();
         }
     }
 }

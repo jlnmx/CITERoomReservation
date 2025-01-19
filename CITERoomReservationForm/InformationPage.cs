@@ -41,5 +41,19 @@ namespace CITERoomReservationForm
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ViewReservationPage viewReservationPage = new ViewReservationPage();
+            viewReservationPage.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ReservationPage reservationPage = new ReservationPage();
+            reservationPage.Show();
+            this.Hide();
+        }
     }
 }

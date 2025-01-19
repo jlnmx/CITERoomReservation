@@ -16,7 +16,6 @@ namespace CITERoomReservationForm
         {
             InitializeComponent();
         }
-
         private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
         {
 
@@ -64,12 +63,21 @@ namespace CITERoomReservationForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            EntryPage entryPage = new EntryPage();
+            entryPage.Show();
+            this.Hide();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            InformationPage informationPage = new InformationPage();
+            informationPage.Show();
+            this.Hide();
         }
     }
 }
