@@ -100,7 +100,7 @@
             label1.Size = new Size(170, 21);
             label1.TabIndex = 1;
             label1.Text = "VIEW RESERVATIONS";
-            label1.Click += this.label1_Click;
+            label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // button1
             // 

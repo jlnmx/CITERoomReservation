@@ -12,9 +12,23 @@ namespace CITERoomReservationForm
 {
     public partial class ViewReservationPage : Form
     {
-        public ViewReservationPage()
+        
+         public ViewReservationPage()
+
         {
+
             InitializeComponent();
+
+        }
+
+
+
+        private void Label1_Click(object sender, EventArgs e)
+
+        {
+
+            // Add your event handler code here
+
         }
     }
 }
