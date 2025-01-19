@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            label1 = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            Column8 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -36,59 +40,17 @@
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
-            label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
-            dataGridView1.Location = new Point(41, 54);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column8, Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
+            dataGridView1.Location = new Point(41, 55);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(792, 328);
+            dataGridView1.Size = new Size(818, 328);
             dataGridView1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Name";
-            Column1.Name = "Column1";
-            Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Course";
-            Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Section";
-            Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Professor";
-            Column4.Name = "Column4";
-            Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Room";
-            Column5.Name = "Column5";
-            Column5.Width = 75;
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Date";
-            Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            Column7.HeaderText = "Time";
-            Column7.Name = "Column7";
-            Column7.Width = 75;
             // 
             // label1
             // 
@@ -100,7 +62,7 @@
             label1.Size = new Size(170, 21);
             label1.TabIndex = 1;
             label1.Text = "VIEW RESERVATIONS";
-            label1.Click += new System.EventHandler(this.Label1_Click);
+            label1.Click += Label1_Click;
             // 
             // button1
             // 
@@ -122,11 +84,58 @@
             button2.Text = "RETURN";
             button2.UseVisualStyleBackColor = true;
             // 
+            // Column8
+            // 
+            Column8.HeaderText = "Role";
+            Column8.Name = "Column8";
+            Column8.Width = 75;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Name";
+            Column1.Name = "Column1";
+            Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Course";
+            Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Section";
+            Column3.Name = "Column3";
+            Column3.Width = 50;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Professor";
+            Column4.Name = "Column4";
+            Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Room";
+            Column5.Name = "Column5";
+            Column5.Width = 75;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Date";
+            Column6.Name = "Column6";
+            Column6.Width = 75;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Time";
+            Column7.Name = "Column7";
+            Column7.Width = 75;
+            // 
             // ViewReservationPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(871, 471);
+            ClientSize = new Size(897, 471);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -141,6 +150,10 @@
         #endregion
 
         private DataGridView dataGridView1;
+        private Label label1;
+        private Button button1;
+        private Button button2;
+        private DataGridViewTextBoxColumn Column8;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
@@ -148,8 +161,5 @@
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
-        private Label label1;
-        private Button button1;
-        private Button button2;
     }
 }
