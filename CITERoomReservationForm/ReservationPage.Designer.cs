@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            toolStripContainer1 = new ToolStripContainer();
-            listBox1 = new ListBox();
             label1 = new Label();
             label2 = new Label();
             comboBox1 = new ComboBox();
@@ -45,39 +43,22 @@
             button2 = new Button();
             button3 = new Button();
             panel1 = new Panel();
-            toolStripContainer1.SuspendLayout();
+            dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // toolStripContainer1
-            // 
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            toolStripContainer1.ContentPanel.Size = new Size(150, 150);
-            toolStripContainer1.ContentPanel.Load += toolStripContainer1_ContentPanel_Load;
-            toolStripContainer1.Location = new Point(802, 213);
-            toolStripContainer1.Name = "toolStripContainer1";
-            toolStripContainer1.Size = new Size(150, 175);
-            toolStripContainer1.TabIndex = 0;
-            toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(43, 46);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(512, 319);
-            listBox1.TabIndex = 1;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Maroon;
-            label1.Location = new Point(43, 22);
+            label1.Location = new Point(43, 40);
             label1.Name = "label1";
             label1.Size = new Size(210, 21);
             label1.TabIndex = 2;
@@ -226,27 +207,59 @@
             panel1.Controls.Add(label2);
             panel1.Location = new Point(37, 375);
             panel1.Name = "panel1";
-            panel1.Size = new Size(518, 179);
+            panel1.Size = new Size(556, 179);
             panel1.TabIndex = 16;
             panel1.Paint += panel1_Paint;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column8, Column6, Column7 });
+            dataGridView1.Location = new Point(43, 74);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(540, 278);
+            dataGridView1.TabIndex = 17;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Course";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Section";
+            Column2.Name = "Column2";
+            // 
+            // Column8
+            // 
+            Column8.HeaderText = "Room";
+            Column8.Name = "Column8";
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Date";
+            Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Time";
+            Column7.Name = "Column7";
             // 
             // ReservationPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(597, 566);
+            ClientSize = new Size(623, 566);
+            Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(button1);
             Controls.Add(label1);
-            Controls.Add(listBox1);
-            Controls.Add(toolStripContainer1);
             Name = "ReservationPage";
             Text = "ReservationPage";
             Load += ReservationPage_Load;
-            toolStripContainer1.ResumeLayout(false);
-            toolStripContainer1.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -270,5 +283,11 @@
         private Button button2;
         private Button button3;
         private Panel panel1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
     }
 }

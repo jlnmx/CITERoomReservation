@@ -39,7 +39,6 @@
             Column7 = new DataGridViewTextBoxColumn();
             label1 = new Label();
             button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -122,20 +121,10 @@
             button1.Text = "CONFIRM";
             button1.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(41, 422);
-            button2.Name = "button2";
-            button2.Size = new Size(81, 24);
-            button2.TabIndex = 3;
-            button2.Text = "RETURN";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(769, 4);
+            button3.Location = new Point(41, 424);
             button3.Name = "button3";
             button3.Size = new Size(62, 22);
             button3.TabIndex = 4;
@@ -147,9 +136,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(843, 471);
+            ClientSize = new Size(858, 471);
             Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
