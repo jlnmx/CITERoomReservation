@@ -33,7 +33,16 @@ namespace CITERoomReservationForm
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+/* Unmerged change from project 'CITERoomReservationForm'
+Before:
             InformationPage informationPage = new InformationPage();
+            informationPage.Show();
+After:
+            ReservationPage informationPage = new ReservationPage();
+            informationPage.Show();
+*/
+            ReservationPage informationPage = new InformationPage();
             informationPage.Show();
             this.Hide();
         }

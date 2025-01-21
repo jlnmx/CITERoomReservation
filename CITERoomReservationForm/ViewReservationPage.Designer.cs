@@ -142,7 +142,7 @@
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "ViewReservationPage";
-            Text = "ViewReservationPage";
+            Text = "View Reservations";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

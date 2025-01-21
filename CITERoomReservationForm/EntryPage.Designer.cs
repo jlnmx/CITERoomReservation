@@ -126,7 +126,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             Name = "EntryPage";
-            Text = "Form1";
+            Text = "PUPBC CITE ROOM RESERVATION SYSTEM";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

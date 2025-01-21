@@ -16,68 +16,74 @@ namespace CITERoomReservationForm
         {
             InitializeComponent();
         }
-        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void ReservationPage_Load(object sender, EventArgs e)
+        private void InformationPage_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            EntryPage entryPage = new EntryPage();
-            entryPage.Show();
+            ViewReservationPage viewReservationPage = new ViewReservationPage();
+            viewReservationPage.Show();
             this.Hide();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ReservationPage reservationPage = new ReservationPage();
+            reservationPage.Show();
+            this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
-            InformationPage informationPage = new InformationPage();
-            informationPage.Show();
-            this.Hide();
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
