@@ -51,8 +51,8 @@ namespace CITERoomReservationForm
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ReservationPage reservationPage = new ReservationPage();
-            reservationPage.Show();
+            EntryPage entryPage = new EntryPage();
+            entryPage.Show();
             this.Hide();
         }
 
@@ -82,6 +82,16 @@ namespace CITERoomReservationForm
         }
 
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

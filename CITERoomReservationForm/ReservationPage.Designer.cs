@@ -44,11 +44,8 @@
             dateTimePicker3 = new DateTimePicker();
             label8 = new Label();
             panel1 = new Panel();
-            button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            panel2 = new Panel();
             dataGridView1 = new DataGridView();
             Column5 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -66,8 +63,8 @@
             comboBox4 = new ComboBox();
             button6 = new Button();
             label15 = new Label();
+            button2 = new Button();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -230,35 +227,14 @@
             panel1.Size = new Size(392, 326);
             panel1.TabIndex = 16;
             // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(106, 9);
-            button1.Name = "button1";
-            button1.Size = new Size(83, 26);
-            button1.TabIndex = 17;
-            button1.Text = "CONFIRM";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(17, 9);
-            button2.Name = "button2";
-            button2.Size = new Size(83, 26);
-            button2.TabIndex = 18;
-            button2.Text = "CLEAR";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(195, 9);
+            button3.Location = new Point(311, 474);
             button3.Name = "button3";
-            button3.Size = new Size(82, 26);
+            button3.Size = new Size(266, 26);
             button3.TabIndex = 19;
-            button3.Text = "VIEW";
+            button3.Text = "VIEW RESERVATIONS";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -272,16 +248,6 @@
             button4.Text = "RETURN";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
-            panel2.Location = new Point(24, 422);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(293, 50);
-            panel2.TabIndex = 21;
             // 
             // dataGridView1
             // 
@@ -411,8 +377,9 @@
             button6.Name = "button6";
             button6.Size = new Size(93, 33);
             button6.TabIndex = 14;
-            button6.Text = "RESERVE";
+            button6.Text = "CONFIRM";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // label15
             // 
@@ -426,11 +393,24 @@
             label15.Text = "RESERVE AN AVAILABLE ROOM";
             label15.Click += label15_Click;
             // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(40, 414);
+            button2.Name = "button2";
+            button2.Size = new Size(83, 26);
+            button2.TabIndex = 18;
+            button2.Text = "CLEAR";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // ReservationPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(930, 524);
+            Controls.Add(button2);
+            Controls.Add(button3);
             Controls.Add(label15);
             Controls.Add(button6);
             Controls.Add(comboBox4);
@@ -438,7 +418,6 @@
             Controls.Add(label10);
             Controls.Add(dataGridView1);
             Controls.Add(comboBox3);
-            Controls.Add(panel2);
             Controls.Add(label11);
             Controls.Add(button4);
             Controls.Add(comboBox5);
@@ -452,7 +431,6 @@
             Load += InformationPage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

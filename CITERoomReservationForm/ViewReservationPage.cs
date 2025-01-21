@@ -42,8 +42,8 @@ After:
             ReservationPage informationPage = new ReservationPage();
             informationPage.Show();
 */
-            ReservationPage informationPage = new InformationPage();
-            informationPage.Show();
+            ReservationPage reservationPage = new ReservationPage();
+            reservationPage.Show();
             this.Hide();
         }
     }
