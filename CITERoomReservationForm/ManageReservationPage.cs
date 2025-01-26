@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace CITERoomReservationForm
 {
-    public partial class ViewReservationPage : Form
+    public partial class ManageReservationPage : Form
     {
 
-        public ViewReservationPage()
+        public ManageReservationPage()
 
         {
 

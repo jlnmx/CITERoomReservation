@@ -1,6 +1,6 @@
 ﻿namespace CITERoomReservationForm
 {
-    partial class ViewReservationPage
+    partial class ManageReservationPage
     {
         /// <summary>
         /// Required designer variable.
@@ -40,6 +40,9 @@
             label1 = new Label();
             button1 = new Button();
             button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -49,8 +52,9 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column8, Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
             dataGridView1.Location = new Point(39, 59);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(792, 328);
+            dataGridView1.Size = new Size(792, 340);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += this.dataGridView1_CellContentClick;
             // 
             // Column8
             // 
@@ -104,11 +108,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Maroon;
-            label1.Location = new Point(41, 20);
+            label1.Location = new Point(39, 26);
             label1.Name = "label1";
-            label1.Size = new Size(170, 21);
+            label1.Size = new Size(199, 21);
             label1.TabIndex = 1;
-            label1.Text = "VIEW RESERVATIONS";
+            label1.Text = "MANAGE RESERVATIONS";
             label1.Click += Label1_Click;
             // 
             // button1
@@ -124,24 +128,57 @@
             // button3
             // 
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(41, 424);
+            button3.Location = new Point(39, 417);
             button3.Name = "button3";
-            button3.Size = new Size(62, 22);
+            button3.Size = new Size(62, 29);
             button3.TabIndex = 4;
             button3.Text = "RETURN";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // ViewReservationPage
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.Location = new Point(560, 423);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 5;
+            button4.Text = "DELETE";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button5.Location = new Point(468, 423);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 6;
+            button5.Text = "EDIT";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button6.Location = new Point(375, 423);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 23);
+            button6.TabIndex = 7;
+            button6.Text = "ADD";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // ManageReservationPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(858, 471);
+            Controls.Add(button6);
+            Controls.Add(button5);
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Name = "ViewReservationPage";
+            Name = "ManageReservationPage";
             Text = "View Reservations";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -163,5 +200,8 @@
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
         private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
     }
 }

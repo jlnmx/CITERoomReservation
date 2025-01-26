@@ -36,6 +36,7 @@
             button2 = new Button();
             label3 = new Label();
             pictureBox2 = new PictureBox();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -113,11 +114,23 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 6F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(12, 12);
+            button3.Name = "button3";
+            button3.Size = new Size(71, 24);
+            button3.TabIndex = 7;
+            button3.Text = "ADMIN MODE";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // EntryPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(553, 473);
+            Controls.Add(button3);
             Controls.Add(label3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -143,5 +156,6 @@
         private Button button2;
         private Label label3;
         private PictureBox pictureBox2;
+        private Button button3;
     }
 }
