@@ -32,9 +32,7 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            btnFaculty = new Button();
-            btnStudent = new Button();
-            label3 = new Label();
+            btnStart = new Button();
             pictureBox2 = new PictureBox();
             button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -73,36 +71,16 @@
             label2.TabIndex = 2;
             label2.Text = "ROOM RESERVATION SYSTEM";
             // 
-            // btnFaculty
+            // btnStart
             // 
-            btnFaculty.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnFaculty.Location = new Point(127, 337);
-            btnFaculty.Name = "btnFaculty";
-            btnFaculty.Size = new Size(108, 41);
-            btnFaculty.TabIndex = 3;
-            btnFaculty.Text = "FACULTY";
-            btnFaculty.UseVisualStyleBackColor = true;
-            btnFaculty.Click += button1_Click;
-            // 
-            // btnStudent
-            // 
-            btnStudent.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnStudent.Location = new Point(319, 337);
-            btnStudent.Name = "btnStudent";
-            btnStudent.Size = new Size(108, 41);
-            btnStudent.TabIndex = 4;
-            btnStudent.Text = "STUDENT";
-            btnStudent.UseVisualStyleBackColor = true;
-            btnStudent.Click += button2_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(248, 319);
-            label3.Name = "label3";
-            label3.Size = new Size(62, 15);
-            label3.TabIndex = 5;
-            label3.Text = "Are you a?";
+            btnStart.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStart.Location = new Point(226, 337);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new Size(108, 41);
+            btnStart.TabIndex = 4;
+            btnStart.Text = "START";
+            btnStart.UseVisualStyleBackColor = true;
+            btnStart.Click += button2_Click;
             // 
             // pictureBox2
             // 
@@ -131,9 +109,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(553, 473);
             Controls.Add(button3);
-            Controls.Add(label3);
-            Controls.Add(btnStudent);
-            Controls.Add(btnFaculty);
+            Controls.Add(btnStart);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -152,9 +128,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
-        private Button btnFaculty;
-        private Button btnStudent;
-        private Label label3;
+        private Button btnStart;
         private PictureBox pictureBox2;
         private Button button3;
     }

@@ -10,68 +10,63 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
+
 namespace CITERoomReservationForm
 {
     public partial class ReservationManagement : Form
     {
+        private List<Reservation> reservations = new List<Reservation>();
+        private TextBox textRoom = new TextBox();
+        private ComboBox cmbCourse = new ComboBox();
+        private ComboBox cmbSection = new ComboBox();
+        private DateTimePicker dtpDate = new DateTimePicker();
+        private DateTimePicker dtpStartTime = new DateTimePicker();
+        private TextBox textName = new TextBox();
+        private ComboBox cmbRole = new ComboBox();
+        private TextBox textProf = new TextBox();
+
         public ReservationManagement()
         {
             InitializeComponent();
+            InitializeControls();
+        }
+        private void InitializeControls()
+        {
+            textRoom = new TextBox();
+            cmbCourse = new ComboBox();
+            cmbSection = new ComboBox();
+            dtpDate = new DateTimePicker();
+            dtpStartTime = new DateTimePicker();
+            textName = new TextBox();
+            cmbRole = new ComboBox();
+            textProf = new TextBox();
         }
 
+       
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-
-        public void AddReservation(string room, string course, string section, DateTime date, string time, string name, string role, string professor)
-        {
-            dataGridViewManageReservations.Rows.Add(room, course, section, date.ToShortDateString(), time, name, role, professor);
-            SyncReservations();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            string room = cmbRoom.SelectedItem?.ToString();
-            string course = cmbCourse.SelectedItem.ToString();
-            string section = cmbSection.SelectedItem.ToString();
-            DateTime date = dtpDate.Value;
-            string time = dtpStartTime.Value.ToString("HH:mm");
-            string name = txtName.Text;
-            string role = txtRole.Text;
-            string professor = txtProfessor.Text;
-
-            AddReservation(room, course, section, date, time, name, role, professor);
-        }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dataGridViewManageReservations.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dataGridViewManageReservations.SelectedRows[0];
-                selectedRow.Cells["Room"].Value = cmbRoom.SelectedItem?.ToString();
-                selectedRow.Cells["Course"].Value = cmbCourse.SelectedItem.ToString();
-                selectedRow.Cells["Section"].Value = cmbSection.SelectedItem.ToString();
-                selectedRow.Cells["Date"].Value = dtpDate.Value.ToShortDateString();
-                selectedRow.Cells["Time"].Value = dtpStartTime.Value.ToString("HH:mm");
-                selectedRow.Cells["Name"].Value = txtName.Text;
-                selectedRow.Cells["Role"].Value = txtRole.Text;
-                selectedRow.Cells["Professor"].Value = txtProfessor.Text;
-                SyncReservations();
-            }
         }
-
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridViewManageReservations.SelectedRows.Count > 0)
+            try
             {
-                dataGridViewManageReservations.Rows.RemoveAt(dataGridViewManageReservations.SelectedRows[0].Index);
-                SyncReservations();
+                if (listViewManage.SelectedItems.Count > 0)
+                {
+                    int index = listViewManage.SelectedItems[0].Index;
+                    reservations.RemoveAt(index);
+                    listViewManage.Items.RemoveAt(index);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting reservation: " + ex.Message);
             }
         }
-
         private void btnReturn_Click(object sender, EventArgs e)
         {
             EntryPage entryPage = new EntryPage();
@@ -79,33 +74,26 @@ namespace CITERoomReservationForm
             this.Hide();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void listViewManage_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        private void SyncReservations()
+        public void AddReservationToListView(Reservation reservation)
         {
-            ReservationPage reservationPage = new ReservationPage(txtRole.Text);
-            reservationPage.dataGridViewReserved.Rows.Clear();
-
-            foreach (DataGridViewRow row in dataGridViewManageReservations.Rows)
+            var listViewItem = new ListViewItem(new[]
             {
-                reservationPage.dataGridViewReserved.Rows.Add(
-                    row.Cells["Room"].Value,
-                    row.Cells["Course"].Value,
-                    row.Cells["Section"].Value,
-                    row.Cells["Date"].Value,
-                    row.Cells["Time"].Value
-                );
-            }
+        reservation.Room,
+        reservation.Course,
+        reservation.Section,
+        reservation.Date.ToShortDateString(),
+        reservation.Time,
+        reservation.Name,
+        reservation.Role,
+        reservation.Professor
+    });
+
+            listViewManage.Items.Add(listViewItem);
         }
-        private ComboBox cmbRoom;
-        private ComboBox cmbCourse;
-        private ComboBox cmbSection;
-        private DateTimePicker dtpDate;
-        private DateTimePicker dtpStartTime;
-        private TextBox txtName;
-        private TextBox txtRole;
-        private TextBox txtProfessor;
+
     }
 }
