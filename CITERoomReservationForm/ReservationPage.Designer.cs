@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            textName = new TextBox();
             textboxProf = new TextBox();
             cmbCourse = new ComboBox();
             cmbSection = new ComboBox();
@@ -44,23 +44,23 @@
             panel1 = new Panel();
             button4 = new Button();
             dataGridViewReserved = new DataGridView();
-            label9 = new Label();
-            comboBox6 = new ComboBox();
-            label13 = new Label();
-            label12 = new Label();
-            comboBox5 = new ComboBox();
-            label11 = new Label();
-            comboBox3 = new ComboBox();
-            label10 = new Label();
-            comboBox4 = new ComboBox();
-            button6 = new Button();
-            label15 = new Label();
-            button2 = new Button();
             colRoom = new DataGridViewTextBoxColumn();
             colCourse = new DataGridViewTextBoxColumn();
             colSection = new DataGridViewTextBoxColumn();
             colDate = new DataGridViewTextBoxColumn();
             colTime = new DataGridViewTextBoxColumn();
+            label9 = new Label();
+            cmbGF = new ComboBox();
+            label13 = new Label();
+            label12 = new Label();
+            cmb2F = new ComboBox();
+            label11 = new Label();
+            cmb3F = new ComboBox();
+            label10 = new Label();
+            cmb4F = new ComboBox();
+            button6 = new Button();
+            label15 = new Label();
+            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewReserved).BeginInit();
             SuspendLayout();
@@ -76,12 +76,13 @@
             label1.TabIndex = 0;
             label1.Text = "FILL UP THE INFORMATION";
             // 
-            // textBox1
+            // textName
             // 
-            textBox1.Location = new Point(79, 42);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(290, 23);
-            textBox1.TabIndex = 1;
+            textName.Location = new Point(79, 42);
+            textName.Name = "textName";
+            textName.Size = new Size(290, 23);
+            textName.TabIndex = 1;
+            textName.TextChanged += textBox1_TextChanged;
             // 
             // textboxProf
             // 
@@ -93,6 +94,7 @@
             // cmbCourse
             // 
             cmbCourse.FormattingEnabled = true;
+            cmbCourse.Items.AddRange(new object[] { "BSCPE", "BSIE", "BSIT", "DCPET", "DIT" });
             cmbCourse.Location = new Point(79, 97);
             cmbCourse.Name = "cmbCourse";
             cmbCourse.Size = new Size(84, 23);
@@ -101,6 +103,7 @@
             // cmbSection
             // 
             cmbSection.FormattingEnabled = true;
+            cmbSection.Items.AddRange(new object[] { "1-1", "1-2", "2-1", "3-1", "4-1", "LADDERIZED" });
             cmbSection.Location = new Point(250, 99);
             cmbSection.Name = "cmbSection";
             cmbSection.Size = new Size(74, 23);
@@ -198,7 +201,7 @@
             panel1.Controls.Add(cmbSection);
             panel1.Controls.Add(cmbCourse);
             panel1.Controls.Add(textboxProf);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(textName);
             panel1.Location = new Point(24, 61);
             panel1.Name = "panel1";
             panel1.Size = new Size(392, 326);
@@ -225,6 +228,36 @@
             dataGridViewReserved.TabIndex = 22;
             dataGridViewReserved.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // colRoom
+            // 
+            colRoom.HeaderText = "ROOM";
+            colRoom.Name = "colRoom";
+            colRoom.Width = 75;
+            // 
+            // colCourse
+            // 
+            colCourse.HeaderText = "COURSE";
+            colCourse.Name = "colCourse";
+            colCourse.Width = 75;
+            // 
+            // colSection
+            // 
+            colSection.HeaderText = "SECTION";
+            colSection.Name = "colSection";
+            colSection.Width = 70;
+            // 
+            // colDate
+            // 
+            colDate.HeaderText = "DATE";
+            colDate.Name = "colDate";
+            colDate.Width = 110;
+            // 
+            // colTime
+            // 
+            colTime.HeaderText = "TIME";
+            colTime.Name = "colTime";
+            colTime.Width = 110;
+            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -236,14 +269,15 @@
             label9.TabIndex = 23;
             label9.Text = "RESERVED ROOMS";
             // 
-            // comboBox6
+            // cmbGF
             // 
-            comboBox6.FormattingEnabled = true;
-            comboBox6.Location = new Point(536, 383);
-            comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(108, 23);
-            comboBox6.TabIndex = 4;
-            comboBox6.SelectedIndexChanged += comboBox6_SelectedIndexChanged;
+            cmbGF.AutoCompleteCustomSource.AddRange(new string[] { "101", "102", "103", "104", "105" });
+            cmbGF.FormattingEnabled = true;
+            cmbGF.Location = new Point(536, 383);
+            cmbGF.Name = "cmbGF";
+            cmbGF.Size = new Size(108, 23);
+            cmbGF.TabIndex = 4;
+            cmbGF.SelectedIndexChanged += comboBox6_SelectedIndexChanged;
             // 
             // label13
             // 
@@ -263,14 +297,15 @@
             label12.TabIndex = 7;
             label12.Text = "2ND FLOOR";
             // 
-            // comboBox5
+            // cmb2F
             // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(536, 422);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(108, 23);
-            comboBox5.TabIndex = 8;
-            comboBox5.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
+            cmb2F.AutoCompleteCustomSource.AddRange(new string[] { "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212" });
+            cmb2F.FormattingEnabled = true;
+            cmb2F.Location = new Point(536, 422);
+            cmb2F.Name = "cmb2F";
+            cmb2F.Size = new Size(108, 23);
+            cmb2F.TabIndex = 8;
+            cmb2F.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
             // 
             // label11
             // 
@@ -281,13 +316,14 @@
             label11.TabIndex = 9;
             label11.Text = "3RD FLOOR";
             // 
-            // comboBox3
+            // cmb3F
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(787, 381);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(108, 23);
-            comboBox3.TabIndex = 10;
+            cmb3F.AutoCompleteCustomSource.AddRange(new string[] { "301", "302", "303", "304", "305", "306", "307", "308", "309", "310" });
+            cmb3F.FormattingEnabled = true;
+            cmb3F.Location = new Point(787, 381);
+            cmb3F.Name = "cmb3F";
+            cmb3F.Size = new Size(108, 23);
+            cmb3F.TabIndex = 10;
             // 
             // label10
             // 
@@ -298,13 +334,14 @@
             label10.TabIndex = 11;
             label10.Text = "4TH FLOOR";
             // 
-            // comboBox4
+            // cmb4F
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(787, 419);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(108, 23);
-            comboBox4.TabIndex = 12;
+            cmb4F.AutoCompleteCustomSource.AddRange(new string[] { "401", "402", "403", "404", "405", "406", "407", "408" });
+            cmb4F.FormattingEnabled = true;
+            cmb4F.Location = new Point(787, 419);
+            cmb4F.Name = "cmb4F";
+            cmb4F.Size = new Size(108, 23);
+            cmb4F.TabIndex = 12;
             // 
             // button6
             // 
@@ -340,36 +377,6 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // colRoom
-            // 
-            colRoom.HeaderText = "ROOM";
-            colRoom.Name = "colRoom";
-            colRoom.Width = 75;
-            // 
-            // colCourse
-            // 
-            colCourse.HeaderText = "COURSE";
-            colCourse.Name = "colCourse";
-            colCourse.Width = 75;
-            // 
-            // colSection
-            // 
-            colSection.HeaderText = "SECTION";
-            colSection.Name = "colSection";
-            colSection.Width = 70;
-            // 
-            // colDate
-            // 
-            colDate.HeaderText = "DATE";
-            colDate.Name = "colDate";
-            colDate.Width = 110;
-            // 
-            // colTime
-            // 
-            colTime.HeaderText = "TIME";
-            colTime.Name = "colTime";
-            colTime.Width = 110;
-            // 
             // ReservationPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -378,19 +385,19 @@
             Controls.Add(button2);
             Controls.Add(label15);
             Controls.Add(button6);
-            Controls.Add(comboBox4);
+            Controls.Add(cmb4F);
             Controls.Add(label9);
             Controls.Add(label10);
             Controls.Add(dataGridViewReserved);
-            Controls.Add(comboBox3);
+            Controls.Add(cmb3F);
             Controls.Add(label11);
             Controls.Add(button4);
-            Controls.Add(comboBox5);
+            Controls.Add(cmb2F);
             Controls.Add(panel1);
             Controls.Add(label12);
             Controls.Add(label1);
             Controls.Add(label13);
-            Controls.Add(comboBox6);
+            Controls.Add(cmbGF);
             Name = "ReservationPage";
             Text = "Reservation";
             Load += InformationPage_Load;
@@ -404,7 +411,7 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textName;
         private TextBox textboxProf;
         private ComboBox cmbCourse;
         private ComboBox cmbSection;
@@ -423,14 +430,14 @@
         private Panel panel2;
         private DataGridView dataGridViewReserved;
         private Label label9;
-        private ComboBox comboBox6;
+        private ComboBox cmbGF;
         private Label label13;
         private Label label12;
-        private ComboBox comboBox5;
+        private ComboBox cmb2F;
         private Label label11;
-        private ComboBox comboBox3;
+        private ComboBox cmb3F;
         private Label label10;
-        private ComboBox comboBox4;
+        private ComboBox cmb4F;
         private Button button6;
         private Label label15;
         private DataGridViewTextBoxColumn colRoom;

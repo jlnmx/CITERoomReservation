@@ -24,7 +24,7 @@ namespace CITERoomReservationForm
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ReservationPage reservationPage = new ReservationPage();
+            ReservationPage reservationPage = new ReservationPage("Student");
             reservationPage.Show();
             this.Hide();
         }
@@ -46,10 +46,9 @@ namespace CITERoomReservationForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ReservationPage reservationPage = new ReservationPage();
+            ReservationPage reservationPage = new ReservationPage("Faculty");
             reservationPage.Show();
             this.Hide();
-
         }
 
         private void button3_Click(object sender, EventArgs e)
