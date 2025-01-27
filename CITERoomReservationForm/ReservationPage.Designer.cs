@@ -30,28 +30,20 @@
         {
             label1 = new Label();
             textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            textboxProf = new TextBox();
+            cmbCourse = new ComboBox();
+            cmbSection = new ComboBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dtpDate = new DateTimePicker();
             label7 = new Label();
             label6 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker3 = new DateTimePicker();
-            label8 = new Label();
+            dtpStartTime = new DateTimePicker();
             panel1 = new Panel();
-            button3 = new Button();
             button4 = new Button();
-            dataGridView1 = new DataGridView();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column1 = new DataGridViewTextBoxColumn();
+            dataGridViewReserved = new DataGridView();
             label9 = new Label();
             comboBox6 = new ComboBox();
             label13 = new Label();
@@ -64,8 +56,13 @@
             button6 = new Button();
             label15 = new Label();
             button2 = new Button();
+            colRoom = new DataGridViewTextBoxColumn();
+            colCourse = new DataGridViewTextBoxColumn();
+            colSection = new DataGridViewTextBoxColumn();
+            colDate = new DataGridViewTextBoxColumn();
+            colTime = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewReserved).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -86,28 +83,28 @@
             textBox1.Size = new Size(290, 23);
             textBox1.TabIndex = 1;
             // 
-            // textBox2
+            // textboxProf
             // 
-            textBox2.Location = new Point(79, 186);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(290, 23);
-            textBox2.TabIndex = 2;
+            textboxProf.Location = new Point(79, 186);
+            textboxProf.Name = "textboxProf";
+            textboxProf.Size = new Size(290, 23);
+            textboxProf.TabIndex = 2;
             // 
-            // comboBox1
+            // cmbCourse
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(79, 97);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(84, 23);
-            comboBox1.TabIndex = 3;
+            cmbCourse.FormattingEnabled = true;
+            cmbCourse.Location = new Point(79, 97);
+            cmbCourse.Name = "cmbCourse";
+            cmbCourse.Size = new Size(84, 23);
+            cmbCourse.TabIndex = 3;
             // 
-            // comboBox2
+            // cmbSection
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(250, 99);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(74, 23);
-            comboBox2.TabIndex = 4;
+            cmbSection.FormattingEnabled = true;
+            cmbSection.Location = new Point(250, 99);
+            cmbSection.Name = "cmbSection";
+            cmbSection.Size = new Size(74, 23);
+            cmbSection.TabIndex = 4;
             // 
             // label2
             // 
@@ -150,12 +147,12 @@
             label5.TabIndex = 8;
             label5.Text = "PROFESSOR'S NAME";
             // 
-            // dateTimePicker1
+            // dtpDate
             // 
-            dateTimePicker1.Location = new Point(79, 241);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(213, 23);
-            dateTimePicker1.TabIndex = 10;
+            dtpDate.Location = new Point(79, 241);
+            dtpDate.Name = "dtpDate";
+            dtpDate.Size = new Size(213, 23);
+            dtpDate.TabIndex = 10;
             // 
             // label7
             // 
@@ -178,65 +175,34 @@
             label6.TabIndex = 12;
             label6.Text = "TIME";
             // 
-            // dateTimePicker2
+            // dtpStartTime
             // 
-            dateTimePicker2.CustomFormat = "hh:mm tt";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(79, 284);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(102, 23);
-            dateTimePicker2.TabIndex = 13;
-            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
-            // 
-            // dateTimePicker3
-            // 
-            dateTimePicker3.CustomFormat = "hh:mm tt";
-            dateTimePicker3.Format = DateTimePickerFormat.Custom;
-            dateTimePicker3.Location = new Point(212, 284);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(101, 23);
-            dateTimePicker3.TabIndex = 14;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(188, 287);
-            label8.Name = "label8";
-            label8.Size = new Size(18, 15);
-            label8.TabIndex = 15;
-            label8.Text = "to";
+            dtpStartTime.CustomFormat = "hh:mm tt";
+            dtpStartTime.Format = DateTimePickerFormat.Custom;
+            dtpStartTime.Location = new Point(79, 284);
+            dtpStartTime.Name = "dtpStartTime";
+            dtpStartTime.Size = new Size(102, 23);
+            dtpStartTime.TabIndex = 13;
+            dtpStartTime.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // panel1
             // 
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(dateTimePicker3);
-            panel1.Controls.Add(dateTimePicker2);
+            panel1.Controls.Add(dtpStartTime);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label7);
-            panel1.Controls.Add(dateTimePicker1);
+            panel1.Controls.Add(dtpDate);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(comboBox2);
-            panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(cmbSection);
+            panel1.Controls.Add(cmbCourse);
+            panel1.Controls.Add(textboxProf);
             panel1.Controls.Add(textBox1);
             panel1.Location = new Point(24, 61);
             panel1.Name = "panel1";
             panel1.Size = new Size(392, 326);
             panel1.TabIndex = 16;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(311, 474);
-            button3.Name = "button3";
-            button3.Size = new Size(266, 26);
-            button3.TabIndex = 19;
-            button3.Text = "VIEW RESERVATIONS";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -249,45 +215,15 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // dataGridView1
+            // dataGridViewReserved
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column5, Column3, Column4, Column2, Column1 });
-            dataGridView1.Location = new Point(432, 61);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(467, 282);
-            dataGridView1.TabIndex = 22;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Room";
-            Column5.Name = "Column5";
-            Column5.Width = 75;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Course";
-            Column3.Name = "Column3";
-            Column3.Width = 75;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Section";
-            Column4.Name = "Column4";
-            Column4.Width = 70;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Date";
-            Column2.Name = "Column2";
-            Column2.Width = 110;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Time";
-            Column1.Name = "Column1";
-            Column1.Width = 110;
+            dataGridViewReserved.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewReserved.Columns.AddRange(new DataGridViewColumn[] { colRoom, colCourse, colSection, colDate, colTime });
+            dataGridViewReserved.Location = new Point(432, 61);
+            dataGridViewReserved.Name = "dataGridViewReserved";
+            dataGridViewReserved.Size = new Size(467, 282);
+            dataGridViewReserved.TabIndex = 22;
+            dataGridViewReserved.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label9
             // 
@@ -404,19 +340,48 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // colRoom
+            // 
+            colRoom.HeaderText = "ROOM";
+            colRoom.Name = "colRoom";
+            colRoom.Width = 75;
+            // 
+            // colCourse
+            // 
+            colCourse.HeaderText = "COURSE";
+            colCourse.Name = "colCourse";
+            colCourse.Width = 75;
+            // 
+            // colSection
+            // 
+            colSection.HeaderText = "SECTION";
+            colSection.Name = "colSection";
+            colSection.Width = 70;
+            // 
+            // colDate
+            // 
+            colDate.HeaderText = "DATE";
+            colDate.Name = "colDate";
+            colDate.Width = 110;
+            // 
+            // colTime
+            // 
+            colTime.HeaderText = "TIME";
+            colTime.Name = "colTime";
+            colTime.Width = 110;
+            // 
             // ReservationPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(930, 524);
             Controls.Add(button2);
-            Controls.Add(button3);
             Controls.Add(label15);
             Controls.Add(button6);
             Controls.Add(comboBox4);
             Controls.Add(label9);
             Controls.Add(label10);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewReserved);
             Controls.Add(comboBox3);
             Controls.Add(label11);
             Controls.Add(button4);
@@ -431,7 +396,7 @@
             Load += InformationPage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewReserved).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -440,31 +405,23 @@
 
         private Label label1;
         private TextBox textBox1;
-        private TextBox textBox2;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private TextBox textboxProf;
+        private ComboBox cmbCourse;
+        private ComboBox cmbSection;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpDate;
         private Label label7;
         private Label label6;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker3;
-        private Label label8;
+        private DateTimePicker dtpStartTime;
         private Panel panel1;
         private Button button1;
         private Button button2;
-        private Button button3;
         private Button button4;
         private Panel panel2;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column1;
+        private DataGridView dataGridViewReserved;
         private Label label9;
         private ComboBox comboBox6;
         private Label label13;
@@ -476,5 +433,10 @@
         private ComboBox comboBox4;
         private Button button6;
         private Label label15;
+        private DataGridViewTextBoxColumn colRoom;
+        private DataGridViewTextBoxColumn colCourse;
+        private DataGridViewTextBoxColumn colSection;
+        private DataGridViewTextBoxColumn colDate;
+        private DataGridViewTextBoxColumn colTime;
     }
 }

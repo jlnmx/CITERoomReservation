@@ -32,8 +32,8 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnFaculty = new Button();
+            btnStudent = new Button();
             label3 = new Label();
             pictureBox2 = new PictureBox();
             button3 = new Button();
@@ -73,27 +73,27 @@
             label2.TabIndex = 2;
             label2.Text = "ROOM RESERVATION SYSTEM";
             // 
-            // button1
+            // btnFaculty
             // 
-            button1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(127, 337);
-            button1.Name = "button1";
-            button1.Size = new Size(108, 41);
-            button1.TabIndex = 3;
-            button1.Text = "FACULTY";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnFaculty.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFaculty.Location = new Point(127, 337);
+            btnFaculty.Name = "btnFaculty";
+            btnFaculty.Size = new Size(108, 41);
+            btnFaculty.TabIndex = 3;
+            btnFaculty.Text = "FACULTY";
+            btnFaculty.UseVisualStyleBackColor = true;
+            btnFaculty.Click += button1_Click;
             // 
-            // button2
+            // btnStudent
             // 
-            button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(319, 337);
-            button2.Name = "button2";
-            button2.Size = new Size(108, 41);
-            button2.TabIndex = 4;
-            button2.Text = "STUDENT";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnStudent.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStudent.Location = new Point(319, 337);
+            btnStudent.Name = "btnStudent";
+            btnStudent.Size = new Size(108, 41);
+            btnStudent.TabIndex = 4;
+            btnStudent.Text = "STUDENT";
+            btnStudent.UseVisualStyleBackColor = true;
+            btnStudent.Click += button2_Click;
             // 
             // label3
             // 
@@ -132,8 +132,8 @@
             ClientSize = new Size(553, 473);
             Controls.Add(button3);
             Controls.Add(label3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnStudent);
+            Controls.Add(btnFaculty);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -152,8 +152,8 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
-        private Button button1;
-        private Button button2;
+        private Button btnFaculty;
+        private Button btnStudent;
         private Label label3;
         private PictureBox pictureBox2;
         private Button button3;
