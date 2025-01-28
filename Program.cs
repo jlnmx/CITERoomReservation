@@ -8,12 +8,16 @@ namespace room_reservation
     {
         static string[] actions = new[]
         {
-                    "Type 'add' to register information.",
+                    "Type 'register' to register an account.",
+                    "Type 'login' to login to your account.",
+                    "Type 'add' to fill up information.",
                     "Type 'reserve' to reserve a room or laboratory.",
                     "Type 'view_reservations' to view all reservations.",
                     "Type 'exit' if you want to exit."
                 };
 
+        static List<string> username = new List<string>();
+        static List<string> password = new List<string>();
         static List<string> names = new List<string>();
         static List<string> courses = new List<string>();
         static List<string> sections = new List<string>();
@@ -54,6 +58,14 @@ namespace room_reservation
             {
                 switch (userAction.ToLower())
                 {
+                    case "register"
+                        AdminRegister();
+                        break;
+
+                    case "login":
+                        AdminLogin();
+                        break;
+
                     case "add":
                         AddInfo();
                         break;
@@ -88,7 +100,31 @@ namespace room_reservation
                 Console.WriteLine(action);
             }
         }
-
+        static void AdminRegister()
+        {
+            Console.WriteLine("REGISTER AN ACCOUNT");
+            Console.Write("Enter Username: ");
+            username.Add(Console.ReadLine());
+            Console.Write("Enter Password: ");
+            password.Add(Console.ReadLine());
+            Console.WriteLine("Successfully registered account.");
+        }
+        static void AdminLogin()
+        {
+            Console.WriteLine("LOGIN TO YOUR ACCOUNT");
+            Console.Write("Enter Username: ");
+            string inputUsername = Console.ReadLine();
+            Console.Write("Enter Password: ");
+            string inputPassword = Console.ReadLine();
+            if (username.Contains(inputUsername) && password.Contains(inputPassword))
+            {
+                Console.WriteLine("Successfully logged in.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid username or password.");
+            }
+        }
         static void AddInfo()
         {
             Console.WriteLine("FILL UP INFORMATION");
