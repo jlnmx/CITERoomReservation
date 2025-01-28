@@ -38,7 +38,7 @@ namespace room_reservation
                     "2023-10-26 12:00"
                 };
 
-        static void Main(string[] args)
+      static void Main(string[] args)
         {
             Console.WriteLine("Welcome to PUPBC Room Reservation");
             Console.WriteLine();
