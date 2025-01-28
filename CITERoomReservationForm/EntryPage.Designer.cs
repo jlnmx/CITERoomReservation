@@ -33,10 +33,8 @@
             label1 = new Label();
             label2 = new Label();
             btnStart = new Button();
-            pictureBox2 = new PictureBox();
             button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -82,16 +80,6 @@
             btnStart.UseVisualStyleBackColor = true;
             btnStart.Click += button2_Click;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Location = new Point(25, 140);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(500, 281);
-            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox2.TabIndex = 6;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
-            // 
             // button3
             // 
             button3.Font = new Font("Segoe UI", 6F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -107,18 +95,17 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(553, 473);
             Controls.Add(button3);
             Controls.Add(btnStart);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Controls.Add(pictureBox2);
             Name = "EntryPage";
             Text = "PUPBC CITE ROOM RESERVATION SYSTEM";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,7 +116,6 @@
         private Label label1;
         private Label label2;
         private Button btnStart;
-        private PictureBox pictureBox2;
         private Button button3;
     }
 }

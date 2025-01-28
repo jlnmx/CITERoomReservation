@@ -1,40 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
+using CITERoomReservationForm;
 
 namespace room_reservation
 {
     internal class Program
     {
-        static string name = string.Empty;
-        static string course = string.Empty;
-        static string section = string.Empty;
-        static string professor = string.Empty;
+        static string[] actions = new[]
+        {
+                    "Type 'add' to register information.",
+                    "Type 'reserve' to reserve a room or laboratory.",
+                    "Type 'view_reservations' to view all reservations.",
+                    "Type 'exit' if you want to exit."
+                };
+
+        static List<string> names = new List<string>();
+        static List<string> courses = new List<string>();
+        static List<string> sections = new List<string>();
+        static List<string> professors = new List<string>();
         static List<string> reservations = new List<string>();
+
+        static List<string> availableRooms = new List<string>
+                {
+                    "Room 203",
+                    "Room 204",
+                    "Room 205",
+                    "Room 206",
+                    "Room 207",
+                    "Room 208"
+                };
+
+        static List<string> availableSchedules = new List<string>
+                {
+                    "2023-10-25 14:00",
+                    "2023-10-25 16:00",
+                    "2023-10-26 10:00",
+                    "2023-10-26 12:00"
+                };
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to PUPBC Room and Laboratory Reservation");
+            Console.WriteLine("Welcome to PUPBC Room Reservation");
             Console.WriteLine();
             Console.WriteLine("Type the action that you want to perform...");
 
-            Console.WriteLine("Type 'add' To Register");
-            Console.WriteLine("Type 'reserve' to reserve a room or laboratory.");
-            Console.WriteLine("Type 'view_reservations' to view all reservations.");
-            Console.WriteLine("Type 'exit' if you want to exit");
-
+            DisplayActions();
             Console.WriteLine();
 
-            string userAction = string.Empty;
+            Console.Write("Type action: ");
+            string userAction = Console.ReadLine();
 
-            while (userAction != "exit")
+            while (userAction.ToLower() != "exit")
             {
-                Console.Write("Choose an Action: ");
-                userAction = Console.ReadLine().ToLower();
-
-                switch (userAction)
+                switch (userAction.ToLower())
                 {
                     case "add":
-                        AddUser();
+                        AddInfo();
                         break;
 
                     case "reserve":
@@ -46,54 +67,82 @@ namespace room_reservation
                         break;
 
                     default:
-                        if (userAction != "exit")
-                        {
-                            Console.WriteLine("Invalid Input. Please try again.");
-                        }
+                        Console.WriteLine("Invalid Input. Please try again.");
                         break;
                 }
 
-                if (userAction != "exit")
-                {
-                    ShowOptions();
-                }
+                Console.WriteLine();
+                DisplayActions();
+                Console.WriteLine();
+                Console.Write("Type action: ");
+                userAction = Console.ReadLine();
             }
 
             Console.WriteLine("Thank You!");
-            Environment.Exit(0);
         }
 
-        static void ShowOptions()
+        static void DisplayActions()
         {
-            Console.WriteLine();
-            Console.WriteLine("Type 'add' To Register");
-            Console.WriteLine("Type 'reserve' to reserve a room or laboratory.");
-            Console.WriteLine("Type 'view_reservations' to view all reservations.");
-            Console.WriteLine("Type 'exit' if you want to exit");
-            Console.WriteLine();
+            foreach (var action in actions)
+            {
+                Console.WriteLine(action);
+            }
         }
 
-        static void AddUser()
+        static void AddInfo()
         {
-            Console.WriteLine("ADD USER ACCOUNT");
+            Console.WriteLine("FILL UP INFORMATION");
             Console.Write("Enter Name: ");
-            name = Console.ReadLine();
+            names.Add(Console.ReadLine());
             Console.Write("Enter Course: ");
-            course = Console.ReadLine();
+            courses.Add(Console.ReadLine());
             Console.Write("Enter Section: ");
-            section = Console.ReadLine();
+            sections.Add(Console.ReadLine());
             Console.Write("Enter Name of Professor (optional): ");
-            professor = Console.ReadLine();
-            Console.WriteLine("Successfully added user " + name);
+            professors.Add(Console.ReadLine());
+            Console.WriteLine("Successfully added user " + names[names.Count - 1]);
         }
 
         static void ReserveRoom()
         {
             Console.WriteLine("RESERVE A ROOM OR LABORATORY");
-            Console.Write("Enter the name of the room or laboratory: ");
-            string roomOrLab = Console.ReadLine();
-            reservations.Add(roomOrLab);
-            Console.WriteLine("Successfully reserved: " + roomOrLab);
+
+            Console.WriteLine("Available Rooms:");
+            foreach (var room in availableRooms)
+            {
+                Console.WriteLine("- " + room);
+            }
+
+            string roomOrLab;
+            do
+            {
+                Console.Write("Enter the name of the room or laboratory: ");
+                roomOrLab = Console.ReadLine();
+                if (!availableRooms.Contains(roomOrLab))
+                {
+                    Console.WriteLine("Invalid room or laboratory. Please choose from the available rooms.");
+                }
+            } while (!availableRooms.Contains(roomOrLab));
+
+            Console.WriteLine("Available Schedules:");
+            foreach (var schedule in availableSchedules)
+            {
+                Console.WriteLine("- " + schedule);
+            }
+
+            string dateTime;
+            do
+            {
+                Console.Write("Enter the date and time for the reservation (e.g., 2023-10-25 14:00): ");
+                dateTime = Console.ReadLine();
+                if (!availableSchedules.Contains(dateTime))
+                {
+                    Console.WriteLine("Invalid schedule. Please choose from the available schedules.");
+                }
+            } while (!availableSchedules.Contains(dateTime));
+
+            reservations.Add($"{roomOrLab} at {dateTime}");
+            Console.WriteLine($"Successfully reserved: {roomOrLab} at {dateTime}");
         }
 
         static void ViewReservations()
@@ -106,9 +155,9 @@ namespace room_reservation
             else
             {
                 Console.WriteLine("Reservations:");
-                foreach (string reservation in reservations)
+                for (int i = 0; i < reservations.Count; i++)
                 {
-                    Console.WriteLine("- " + reservation);
+                    Console.WriteLine($"- Name: {names[i]}, Course: {courses[i]}, Section: {sections[i]}, Professor: {professors[i]}, Reservation: {reservations[i]}");
                 }
             }
         }

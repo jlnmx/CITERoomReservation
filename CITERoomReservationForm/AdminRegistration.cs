@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CITERoomReservationForm;
 
 namespace CITERoomReservationForm
 {
@@ -19,15 +20,11 @@ namespace CITERoomReservationForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AdminRegister.Username = textUsername.Text;
-            AdminRegister.Password = textPassword.Text;
+            string username = textUsername.Text;
+            string password = textPassword.Text;
 
-           
-            MessageBox.Show("Registration Successful", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            AdminLogin login = new AdminLogin();
-            login.Show();
-            this.Hide();
-                                   
+            CITERoomReserve.RegisterUser(username, password); 
+            MessageBox.Show("User registered successfully.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void textUsername_TextChanged(object sender, EventArgs e)

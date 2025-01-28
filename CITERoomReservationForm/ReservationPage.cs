@@ -13,8 +13,6 @@ namespace CITERoomReservationForm
 {
     public partial class ReservationPage : Form
     {
-        public List<Reservation> Reservations { get; private set; } = new List<Reservation>();
-
         public ReservationPage()
         {
             InitializeComponent();
@@ -86,51 +84,11 @@ namespace CITERoomReservationForm
 
         private void button6_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string room = textRoom.Text;
-                string course = cmbCourse.SelectedItem?.ToString() ?? string.Empty;
-                string section = cmbSection.SelectedItem?.ToString() ?? string.Empty;
-                DateTime date = dtpDate.Value;
-                string time = dtpStartTime.Value.ToString("HH:mm");
-                string name = textName.Text;
-                string role = cmbRole.SelectedItem?.ToString() ?? string.Empty;
-                string professor = textProf.Text;
 
-                var reservation = new Reservation
-                {
-                    Room = room,
-                    Course = course,
-                    Section = section,
-                    Date = date,
-                    Time = time,
-                    Name = name,
-                    Role = role,
-                    Professor = professor
-                };
 
-                Reservations.Add(reservation);
-
-                var reservationManagement = Application.OpenForms.OfType<ReservationManagement>().FirstOrDefault();
-
-                MessageBox.Show("Reservation Confirmed");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error Reservation: " + ex.Message);
-            }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            textRoom.Clear();
-            cmbCourse.SelectedIndex = -1;
-            cmbSection.SelectedIndex = -1;
-            dtpDate.Value = DateTime.Now;
-            dtpStartTime.Value = DateTime.Now;
-            textName.Clear();
-            cmbRole.SelectedIndex = -1;
-            textProf.Clear();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -144,6 +102,16 @@ namespace CITERoomReservationForm
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
         }
