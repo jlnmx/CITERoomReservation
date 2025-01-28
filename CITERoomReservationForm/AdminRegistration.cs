@@ -20,11 +20,6 @@ namespace CITERoomReservationForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textUsername.Text;
-            string password = textPassword.Text;
-
-            CITERoomReserve.RegisterUser(username, password); 
-            MessageBox.Show("User registered successfully.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void textUsername_TextChanged(object sender, EventArgs e)

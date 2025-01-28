@@ -79,10 +79,6 @@
             btnReturn.UseVisualStyleBackColor = true;
             btnReturn.Click += btnReturn_Click;
             // 
-            // reservationBindingSource
-            // 
-            reservationBindingSource.DataSource = typeof(Reservation);
-            // 
             // label1
             // 
             label1.AutoSize = true;

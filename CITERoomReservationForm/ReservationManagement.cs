@@ -15,7 +15,6 @@ namespace CITERoomReservationForm
 {
     public partial class ReservationManagement : Form
     {
-        private List<Reservation> reservations = new List<Reservation>();
         private TextBox textRoom = new TextBox();
         private ComboBox cmbCourse = new ComboBox();
         private ComboBox cmbSection = new ComboBox();
@@ -53,19 +52,7 @@ namespace CITERoomReservationForm
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (listViewManage.SelectedItems.Count > 0)
-                {
-                    int index = listViewManage.SelectedItems[0].Index;
-                    reservations.RemoveAt(index);
-                    listViewManage.Items.RemoveAt(index);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error deleting reservation: " + ex.Message);
-            }
+           
         }
         private void btnReturn_Click(object sender, EventArgs e)
         {
@@ -78,22 +65,7 @@ namespace CITERoomReservationForm
         {
 
         }
-        public void AddReservationToListView(Reservation reservation)
-        {
-            var listViewItem = new ListViewItem(new[]
-            {
-        reservation.Room,
-        reservation.Course,
-        reservation.Section,
-        reservation.Date.ToShortDateString(),
-        reservation.Time,
-        reservation.Name,
-        reservation.Role,
-        reservation.Professor
-    });
-
-            listViewManage.Items.Add(listViewItem);
+      
         }
 
     }
-}
