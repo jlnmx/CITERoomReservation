@@ -42,6 +42,7 @@
             button1 = new Button();
             label7 = new Label();
             button2 = new Button();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -176,11 +177,23 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(26, 408);
+            button3.Name = "button3";
+            button3.Size = new Size(67, 30);
+            button3.TabIndex = 20;
+            button3.Text = "RETURN";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // AdminLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(526, 450);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(label7);
             Controls.Add(button1);
@@ -218,5 +231,6 @@
         private Button button1;
         private Label label7;
         private Button button2;
+        private Button button3;
     }
 }

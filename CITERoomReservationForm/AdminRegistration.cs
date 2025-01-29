@@ -20,6 +20,9 @@ namespace CITERoomReservationForm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ViewReservations view = new ViewReservations();
+            view.Show();
+            this.Hide();
         }
 
         private void textUsername_TextChanged(object sender, EventArgs e)

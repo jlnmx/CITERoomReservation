@@ -37,12 +37,12 @@
             label4 = new Label();
             label5 = new Label();
             panel1 = new Panel();
+            txtSection = new TextBox();
+            txtCourse = new TextBox();
             button2 = new Button();
             button6 = new Button();
             button4 = new Button();
             label13 = new Label();
-            txtCourse = new TextBox();
-            txtSection = new TextBox();
             label6 = new Label();
             label7 = new Label();
             label15 = new Label();
@@ -129,7 +129,6 @@
             panel1.Controls.Add(txtSection);
             panel1.Controls.Add(txtCourse);
             panel1.Controls.Add(button2);
-            panel1.Controls.Add(button6);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
@@ -141,10 +140,25 @@
             panel1.Size = new Size(353, 326);
             panel1.TabIndex = 16;
             // 
+            // txtSection
+            // 
+            txtSection.Location = new Point(197, 120);
+            txtSection.Name = "txtSection";
+            txtSection.Size = new Size(65, 23);
+            txtSection.TabIndex = 20;
+            // 
+            // txtCourse
+            // 
+            txtCourse.Location = new Point(18, 120);
+            txtCourse.Name = "txtCourse";
+            txtCourse.Size = new Size(74, 23);
+            txtCourse.TabIndex = 19;
+            txtCourse.TextChanged += textBox1_TextChanged_1;
+            // 
             // button2
             // 
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(21, 284);
+            button2.Location = new Point(0, 286);
             button2.Name = "button2";
             button2.Size = new Size(83, 26);
             button2.TabIndex = 18;
@@ -155,7 +169,7 @@
             // button6
             // 
             button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.Location = new Point(233, 284);
+            button6.Location = new Point(578, 393);
             button6.Name = "button6";
             button6.Size = new Size(93, 26);
             button6.TabIndex = 14;
@@ -181,21 +195,6 @@
             label13.Name = "label13";
             label13.Size = new Size(0, 15);
             label13.TabIndex = 6;
-            // 
-            // txtCourse
-            // 
-            txtCourse.Location = new Point(18, 120);
-            txtCourse.Name = "txtCourse";
-            txtCourse.Size = new Size(74, 23);
-            txtCourse.TabIndex = 19;
-            txtCourse.TextChanged += textBox1_TextChanged_1;
-            // 
-            // txtSection
-            // 
-            txtSection.Location = new Point(197, 120);
-            txtSection.Name = "txtSection";
-            txtSection.Size = new Size(65, 23);
-            txtSection.TabIndex = 20;
             // 
             // label6
             // 
@@ -300,6 +299,7 @@
             Controls.Add(panel2);
             Controls.Add(button4);
             Controls.Add(panel1);
+            Controls.Add(button6);
             Controls.Add(label1);
             Controls.Add(label13);
             Name = "ReservationPage";

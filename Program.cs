@@ -8,13 +8,14 @@ namespace room_reservation
     {
         static string[] actions = new[]
         {
-                    "Type 'register' to register an account.",
-                    "Type 'login' to login to your account.",
-                    "Type 'add' to fill up information.",
-                    "Type 'reserve' to reserve a room or laboratory.",
-                    "Type 'view_reservations' to view all reservations.",
-                    "Type 'exit' if you want to exit."
-                };
+                "Type 'register' to register an account.",
+                "Type 'login' to login to your account.",
+                "Type 'add' to fill up information.",
+                "Type 'reserve' to reserve a room or laboratory.",
+                "Type 'view_reservations' to view all reservations.",
+                "Type 'delete_reservation' to delete a reservation.",
+                "Type 'exit' if you want to exit."
+            };
 
         static List<string> username = new List<string>();
         static List<string> password = new List<string>();
@@ -25,24 +26,24 @@ namespace room_reservation
         static List<string> reservations = new List<string>();
 
         static List<string> availableRooms = new List<string>
-                {
-                    "Room 203",
-                    "Room 204",
-                    "Room 205",
-                    "Room 206",
-                    "Room 207",
-                    "Room 208"
-                };
+            {
+                "Room 203",
+                "Room 204",
+                "Room 205",
+                "Room 206",
+                "Room 207",
+                "Room 208"
+            };
 
         static List<string> availableSchedules = new List<string>
-                {
-                    "2023-10-25 14:00",
-                    "2023-10-25 16:00",
-                    "2023-10-26 10:00",
-                    "2023-10-26 12:00"
-                };
+            {
+                "2023-10-25 14:00",
+                "2023-10-25 16:00",
+                "2023-10-26 10:00",
+                "2023-10-26 12:00"
+            };
 
-      static void Main(string[] args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Welcome to PUPBC Room Reservation");
             Console.WriteLine();
@@ -58,7 +59,7 @@ namespace room_reservation
             {
                 switch (userAction.ToLower())
                 {
-                    case "register"
+                    case "register":
                         AdminRegister();
                         break;
 
@@ -76,6 +77,10 @@ namespace room_reservation
 
                     case "view_reservations":
                         ViewReservations();
+                        break;
+
+                    case "delete_reservation":
+                        DeleteReservation();
                         break;
 
                     default:
@@ -100,6 +105,7 @@ namespace room_reservation
                 Console.WriteLine(action);
             }
         }
+
         static void AdminRegister()
         {
             Console.WriteLine("REGISTER AN ACCOUNT");
@@ -109,6 +115,7 @@ namespace room_reservation
             password.Add(Console.ReadLine());
             Console.WriteLine("Successfully registered account.");
         }
+
         static void AdminLogin()
         {
             Console.WriteLine("LOGIN TO YOUR ACCOUNT");
@@ -125,6 +132,7 @@ namespace room_reservation
                 Console.WriteLine("Invalid username or password.");
             }
         }
+
         static void AddInfo()
         {
             Console.WriteLine("FILL UP INFORMATION");
@@ -195,6 +203,31 @@ namespace room_reservation
                 {
                     Console.WriteLine($"- Name: {names[i]}, Course: {courses[i]}, Section: {sections[i]}, Professor: {professors[i]}, Reservation: {reservations[i]}");
                 }
+            }
+        }
+
+
+        static void DeleteReservation()
+        {
+            Console.WriteLine("DELETE A RESERVATION");
+            ViewReservations();
+            if (reservations.Count == 0) return;
+
+            Console.Write("Enter the reservation number to delete: ");
+            int reservationNumber;
+            if (int.TryParse(Console.ReadLine(), out reservationNumber) && reservationNumber > 0 && reservationNumber <= reservations.Count)
+            {
+                reservationNumber--; 
+                reservations.RemoveAt(reservationNumber);
+                names.RemoveAt(reservationNumber);
+                courses.RemoveAt(reservationNumber);
+                sections.RemoveAt(reservationNumber);
+                professors.RemoveAt(reservationNumber);
+                Console.WriteLine("Successfully deleted reservation.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid reservation number.");
             }
         }
     }

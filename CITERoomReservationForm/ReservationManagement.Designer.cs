@@ -30,48 +30,29 @@
         {
             components = new System.ComponentModel.Container();
             btnDelete = new Button();
-            btnEdit = new Button();
             btnReturn = new Button();
             reservationBindingSource = new BindingSource(components);
             label1 = new Label();
-            listViewManage = new ListView();
-            colRole = new ColumnHeader();
-            colName = new ColumnHeader();
-            colCourse = new ColumnHeader();
-            colSection = new ColumnHeader();
-            colRoom = new ColumnHeader();
-            colProf = new ColumnHeader();
-            colDate = new ColumnHeader();
-            colTime = new ColumnHeader();
+            button1 = new Button();
+            listBox1 = new ListBox();
             ((System.ComponentModel.ISupportInitialize)reservationBindingSource).BeginInit();
             SuspendLayout();
             // 
             // btnDelete
             // 
             btnDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(505, 427);
+            btnDelete.Location = new Point(473, 356);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(65, 23);
+            btnDelete.Size = new Size(65, 24);
             btnDelete.TabIndex = 12;
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
-            // btnEdit
-            // 
-            btnEdit.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEdit.Location = new Point(424, 427);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(75, 24);
-            btnEdit.TabIndex = 11;
-            btnEdit.Text = "EDIT";
-            btnEdit.UseVisualStyleBackColor = true;
-            btnEdit.Click += btnEdit_Click;
-            // 
             // btnReturn
             // 
             btnReturn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReturn.Location = new Point(29, 427);
+            btnReturn.Location = new Point(29, 356);
             btnReturn.Name = "btnReturn";
             btnReturn.Size = new Size(89, 24);
             btnReturn.TabIndex = 9;
@@ -84,32 +65,40 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Maroon;
-            label1.Location = new Point(29, 30);
+            label1.Location = new Point(29, 20);
             label1.Name = "label1";
             label1.Size = new Size(265, 30);
             label1.TabIndex = 7;
             label1.Text = "MANAGE RESERVATIONS";
             label1.Click += label1_Click;
             // 
-            // listViewManage
+            // button1
             // 
-            listViewManage.Columns.AddRange(new ColumnHeader[] { colRole, colName, colCourse, colSection, colRoom, colProf, colDate, colTime });
-            listViewManage.Location = new Point(40, 81);
-            listViewManage.Name = "listViewManage";
-            listViewManage.Size = new Size(801, 327);
-            listViewManage.TabIndex = 13;
-            listViewManage.UseCompatibleStateImageBehavior = false;
-            listViewManage.View = View.List;
-            listViewManage.SelectedIndexChanged += listViewManage_SelectedIndexChanged;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(368, 356);
+            button1.Name = "button1";
+            button1.Size = new Size(65, 24);
+            button1.TabIndex = 14;
+            button1.Text = "ADD";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(29, 72);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(509, 259);
+            listBox1.TabIndex = 15;
             // 
             // ReservationManagement
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(867, 492);
-            Controls.Add(listViewManage);
+            ClientSize = new Size(566, 414);
+            Controls.Add(listBox1);
+            Controls.Add(button1);
             Controls.Add(btnDelete);
-            Controls.Add(btnEdit);
             Controls.Add(btnReturn);
             Controls.Add(label1);
             Name = "ReservationManagement";
@@ -122,18 +111,10 @@
         #endregion
 
         private Button btnDelete;
-        private Button btnEdit;
         private Button btnReturn;
         private Label label1;
         private BindingSource reservationBindingSource;
-        private ListView listViewManage;
-        private ColumnHeader colRole;
-        private ColumnHeader colName;
-        private ColumnHeader colCourse;
-        private ColumnHeader colSection;
-        private ColumnHeader colRoom;
-        private ColumnHeader colProf;
-        private ColumnHeader colDate;
-        private ColumnHeader colTime;
+        private Button button1;
+        private ListBox listBox1;
     }
 }
