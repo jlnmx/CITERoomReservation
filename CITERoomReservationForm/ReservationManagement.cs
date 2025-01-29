@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using CITERoomReserveLogic;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,33 +16,27 @@ namespace CITERoomReservationForm
 {
     public partial class ReservationManagement : Form
     {
-        private TextBox textRoom = new TextBox();
-        private ComboBox cmbCourse = new ComboBox();
-        private ComboBox cmbSection = new ComboBox();
-        private DateTimePicker dtpDate = new DateTimePicker();
-        private DateTimePicker dtpStartTime = new DateTimePicker();
-        private TextBox textName = new TextBox();
-        private ComboBox cmbRole = new ComboBox();
-        private TextBox textProf = new TextBox();
+
 
         public ReservationManagement()
         {
             InitializeComponent();
             InitializeControls();
+            LoadReservations();
         }
         private void InitializeControls()
         {
-            textRoom = new TextBox();
-            cmbCourse = new ComboBox();
-            cmbSection = new ComboBox();
-            dtpDate = new DateTimePicker();
-            dtpStartTime = new DateTimePicker();
-            textName = new TextBox();
-            cmbRole = new ComboBox();
-            textProf = new TextBox();
-        }
 
-       
+        }
+        private void LoadReservations()
+        {
+            listBoxManage.Items.Clear();
+            List<string> reservations = CITERoomReserve.GetAllReservations();
+            foreach (var reservation in reservations)
+            {
+                listBoxManage.Items.Add(reservation);
+            }
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -52,8 +47,25 @@ namespace CITERoomReservationForm
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-           
+            if (listBoxManage.SelectedIndex != -1)
+            {
+                int reservationNumber = listBoxManage.SelectedIndex + 1;
+                if (CITERoomReserve.DeleteReservation(reservationNumber))
+                {
+                    MessageBox.Show("Reservation deleted successfully!");
+                    LoadReservations();
+                }
+                else
+                {
+                    MessageBox.Show("Deleting reservation failed. Please try again.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a reservation to delete.");
+            }
         }
+        
         private void btnReturn_Click(object sender, EventArgs e)
         {
             EntryPage entryPage = new EntryPage();
@@ -65,7 +77,18 @@ namespace CITERoomReservationForm
         {
 
         }
-      
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReservationPage reservationPage = new ReservationPage();
+            reservationPage.Show();
+            this.Hide();
         }
 
+        private void listBoxManage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
+}

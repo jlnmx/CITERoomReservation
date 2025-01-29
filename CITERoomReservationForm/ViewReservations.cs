@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CITERoomReserveLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace CITERoomReservationForm
         public ViewReservations()
         {
             InitializeComponent();
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -24,12 +26,26 @@ namespace CITERoomReservationForm
 
         private void btnViewReservations_Click(object sender, EventArgs e)
         {
+            listBoxReservations.Items.Clear();
+            List<string> reservations = CITERoomReserve.GetAllReservations();
+            foreach (var reservation in reservations)
+            {
+                listBoxReservations.Items.Add(reservation);
+            }
 
         }
 
         private void listBoxReservations_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReservationPage reservePage = new ReservationPage();
+            reservePage.Show();
+            this.Hide();
+                
         }
     }
 }

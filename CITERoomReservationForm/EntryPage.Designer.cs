@@ -39,10 +39,11 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(228, 45);
+            pictureBox1.Location = new Point(226, 47);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(106, 105);
+            pictureBox1.Size = new Size(108, 105);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
@@ -50,6 +51,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 30F, FontStyle.Bold);
             label1.ForeColor = Color.Maroon;
             label1.Location = new Point(65, 164);
@@ -62,6 +64,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             label2.Location = new Point(84, 218);
             label2.Name = "label2";
@@ -71,13 +74,15 @@
             // 
             // btnStart
             // 
-            btnStart.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStart.BackColor = Color.Maroon;
+            btnStart.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStart.ForeColor = SystemColors.ButtonHighlight;
             btnStart.Location = new Point(226, 337);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(108, 41);
             btnStart.TabIndex = 4;
             btnStart.Text = "START";
-            btnStart.UseVisualStyleBackColor = true;
+            btnStart.UseVisualStyleBackColor = false;
             btnStart.Click += button2_Click;
             // 
             // button3

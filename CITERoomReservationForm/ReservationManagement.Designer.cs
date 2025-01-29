@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationManagement));
             btnDelete = new Button();
             btnReturn = new Button();
             reservationBindingSource = new BindingSource(components);
             label1 = new Label();
-            button1 = new Button();
-            listBox1 = new ListBox();
+            btnAdd = new Button();
+            listBoxManage = new ListBox();
             ((System.ComponentModel.ISupportInitialize)reservationBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -63,6 +64,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Maroon;
             label1.Location = new Point(29, 20);
@@ -72,32 +74,35 @@
             label1.Text = "MANAGE RESERVATIONS";
             label1.Click += label1_Click;
             // 
-            // button1
+            // btnAdd
             // 
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(368, 356);
-            button1.Name = "button1";
-            button1.Size = new Size(65, 24);
-            button1.TabIndex = 14;
-            button1.Text = "ADD";
-            button1.UseVisualStyleBackColor = true;
+            btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.Location = new Point(368, 356);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(65, 24);
+            btnAdd.TabIndex = 14;
+            btnAdd.Text = "ADD";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += button1_Click;
             // 
-            // listBox1
+            // listBoxManage
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(29, 72);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(509, 259);
-            listBox1.TabIndex = 15;
+            listBoxManage.FormattingEnabled = true;
+            listBoxManage.ItemHeight = 15;
+            listBoxManage.Location = new Point(29, 72);
+            listBoxManage.Name = "listBoxManage";
+            listBoxManage.Size = new Size(509, 259);
+            listBoxManage.TabIndex = 15;
+            listBoxManage.SelectedIndexChanged += listBoxManage_SelectedIndexChanged;
             // 
             // ReservationManagement
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(566, 414);
-            Controls.Add(listBox1);
-            Controls.Add(button1);
+            Controls.Add(listBoxManage);
+            Controls.Add(btnAdd);
             Controls.Add(btnDelete);
             Controls.Add(btnReturn);
             Controls.Add(label1);
@@ -114,7 +119,7 @@
         private Button btnReturn;
         private Label label1;
         private BindingSource reservationBindingSource;
-        private Button button1;
-        private ListBox listBox1;
+        private Button btnAdd;
+        private ListBox listBoxManage;
     }
 }

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CITERoomReservationForm;
+using CITERoomReserveLogic;
+
 
 namespace CITERoomReservationForm
 {
@@ -20,8 +22,14 @@ namespace CITERoomReservationForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ViewReservations view = new ViewReservations();
-            view.Show();
+            string username = textUsername.Text;
+            string password = textPassword.Text;
+
+            CITERoomReserve.AdminRegister(username, password);
+            MessageBox.Show("Successfully registered account: " + username);
+
+            ReservationManagement manage = new ReservationManagement();
+            manage.Show();
             this.Hide();
         }
 
@@ -37,8 +45,8 @@ namespace CITERoomReservationForm
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            AdminLogin login = new AdminLogin();
-            login.Show();
+            EntryPage menu = new EntryPage();
+            menu.Show();
             this.Hide();
         }
     }

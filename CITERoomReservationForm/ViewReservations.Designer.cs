@@ -33,12 +33,14 @@
             panel1 = new Panel();
             listBoxReservations = new ListBox();
             btnViewReservations = new Button();
+            button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Maroon;
             label1.Location = new Point(139, 27);
@@ -80,12 +82,24 @@
             btnViewReservations.UseVisualStyleBackColor = false;
             btnViewReservations.Click += btnViewReservations_Click;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(14, 9);
+            button1.Name = "button1";
+            button1.Size = new Size(63, 20);
+            button1.TabIndex = 2;
+            button1.Text = "RETURN";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // ViewReservations
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(486, 430);
+            Controls.Add(button1);
             Controls.Add(panel1);
             Controls.Add(label1);
             Name = "ViewReservations";
@@ -110,5 +124,6 @@ After:
 */
         private Button btnViewReservations;
         private ListBox listBoxReservations;
+        private Button button1;
     }
 }

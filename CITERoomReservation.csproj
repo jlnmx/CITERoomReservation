@@ -18,4 +18,8 @@
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CITERoomReserveLogic\CITERoomReserveLogic.csproj" />
+  </ItemGroup>
+
 </Project>

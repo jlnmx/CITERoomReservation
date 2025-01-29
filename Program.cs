@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CITERoomReservationForm;
+using CITERoomReserveLogic;
 
 namespace room_reservation
 {
@@ -17,31 +18,31 @@ namespace room_reservation
                 "Type 'exit' if you want to exit."
             };
 
-        static List<string> username = new List<string>();
-        static List<string> password = new List<string>();
-        static List<string> names = new List<string>();
-        static List<string> courses = new List<string>();
-        static List<string> sections = new List<string>();
-        static List<string> professors = new List<string>();
-        static List<string> reservations = new List<string>();
+        //static List<string> username = new List<string>();
+        //static List<string> password = new List<string>();
+        //static List<string> names = new List<string>();
+        //static List<string> courses = new List<string>();
+        //static List<string> sections = new List<string>();
+        //static List<string> professors = new List<string>();
+        //static List<string> reservations = new List<string>();
 
-        static List<string> availableRooms = new List<string>
-            {
-                "Room 203",
-                "Room 204",
-                "Room 205",
-                "Room 206",
-                "Room 207",
-                "Room 208"
-            };
+        //static List<string> availableRooms = new List<string>
+        //    {
+        //        "Room 203",
+        //        "Room 204",
+        //        "Room 205",
+        //        "Room 206",
+        //        "Room 207",
+        //        "Room 208"
+        //    };
 
-        static List<string> availableSchedules = new List<string>
-            {
-                "2023-10-25 14:00",
-                "2023-10-25 16:00",
-                "2023-10-26 10:00",
-                "2023-10-26 12:00"
-            };
+        //static List<string> availableSchedules = new List<string>
+        //    {
+        //        "2023-10-25 14:00",
+        //        "2023-10-25 16:00",
+        //        "2023-10-26 10:00",
+        //        "2023-10-26 12:00"
+        //    };
 
         static void Main(string[] args)
         {
@@ -109,12 +110,19 @@ namespace room_reservation
         static void AdminRegister()
         {
             Console.WriteLine("REGISTER AN ACCOUNT");
+            Console.WriteLine();
+
             Console.Write("Enter Username: ");
-            username.Add(Console.ReadLine());
+            string enterUsername = Console.ReadLine();
             Console.Write("Enter Password: ");
-            password.Add(Console.ReadLine());
-            Console.WriteLine("Successfully registered account.");
+            string enterPassword = Console.ReadLine();
+
+            CITERoomReserve.AdminRegister(enterUsername, enterPassword);
+
+            Console.WriteLine("Successfully registered account: " + enterUsername);
         }
+
+        
 
         static void AdminLogin()
         {
@@ -123,28 +131,27 @@ namespace room_reservation
             string inputUsername = Console.ReadLine();
             Console.Write("Enter Password: ");
             string inputPassword = Console.ReadLine();
-            if (username.Contains(inputUsername) && password.Contains(inputPassword))
-            {
-                Console.WriteLine("Successfully logged in.");
-            }
-            else
-            {
-                Console.WriteLine("Invalid username or password.");
-            }
+            CITERoomReserve.AdminLogin(inputUsername, inputPassword);
         }
+  
 
         static void AddInfo()
         {
             Console.WriteLine("FILL UP INFORMATION");
+            Console.WriteLine();
+
             Console.Write("Enter Name: ");
-            names.Add(Console.ReadLine());
+            string enterName = Console.ReadLine();
             Console.Write("Enter Course: ");
-            courses.Add(Console.ReadLine());
+            string enterCourse = Console.ReadLine();
             Console.Write("Enter Section: ");
-            sections.Add(Console.ReadLine());
+            string enterSection = Console.ReadLine();
             Console.Write("Enter Name of Professor (optional): ");
-            professors.Add(Console.ReadLine());
-            Console.WriteLine("Successfully added user " + names[names.Count - 1]);
+            string enterProfessor = Console.ReadLine();
+
+            CITERoomReserve.AddInfo(enterName, enterCourse, enterSection, enterProfessor);
+
+            Console.WriteLine("Successfully added user: " + enterName);
         }
 
         static void ReserveRoom()
@@ -152,6 +159,7 @@ namespace room_reservation
             Console.WriteLine("RESERVE A ROOM OR LABORATORY");
 
             Console.WriteLine("Available Rooms:");
+            var availableRooms = CITERoomReserve.GetAvailableRooms();
             foreach (var room in availableRooms)
             {
                 Console.WriteLine("- " + room);
@@ -169,6 +177,7 @@ namespace room_reservation
             } while (!availableRooms.Contains(roomOrLab));
 
             Console.WriteLine("Available Schedules:");
+            var availableSchedules = CITERoomReserve.GetAvailableSchedules();
             foreach (var schedule in availableSchedules)
             {
                 Console.WriteLine("- " + schedule);
@@ -185,13 +194,15 @@ namespace room_reservation
                 }
             } while (!availableSchedules.Contains(dateTime));
 
-            reservations.Add($"{roomOrLab} at {dateTime}");
+            CITERoomReserve.ReserveRoom(roomOrLab, dateTime);
             Console.WriteLine($"Successfully reserved: {roomOrLab} at {dateTime}");
         }
 
         static void ViewReservations()
         {
             Console.WriteLine("VIEW ALL RESERVATIONS");
+            var reservations = CITERoomReserve.GetAllReservations();
+
             if (reservations.Count == 0)
             {
                 Console.WriteLine("No reservations made yet.");
@@ -199,30 +210,28 @@ namespace room_reservation
             else
             {
                 Console.WriteLine("Reservations:");
-                for (int i = 0; i < reservations.Count; i++)
+                foreach (var reservation in reservations)
                 {
-                    Console.WriteLine($"- Name: {names[i]}, Course: {courses[i]}, Section: {sections[i]}, Professor: {professors[i]}, Reservation: {reservations[i]}");
+                    Console.WriteLine($"- {reservation}");
                 }
             }
         }
+
 
 
         static void DeleteReservation()
         {
             Console.WriteLine("DELETE A RESERVATION");
             ViewReservations();
+            var reservations = CITERoomReserve.GetAllReservations();
             if (reservations.Count == 0) return;
 
             Console.Write("Enter the reservation number to delete: ");
             int reservationNumber;
             if (int.TryParse(Console.ReadLine(), out reservationNumber) && reservationNumber > 0 && reservationNumber <= reservations.Count)
             {
-                reservationNumber--; 
-                reservations.RemoveAt(reservationNumber);
-                names.RemoveAt(reservationNumber);
-                courses.RemoveAt(reservationNumber);
-                sections.RemoveAt(reservationNumber);
-                professors.RemoveAt(reservationNumber);
+                reservationNumber--;
+                CITERoomReserve.DeleteReservation(reservationNumber);
                 Console.WriteLine("Successfully deleted reservation.");
             }
             else

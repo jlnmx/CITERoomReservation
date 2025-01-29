@@ -49,9 +49,10 @@
             label9 = new Label();
             btnViewRooms = new Button();
             btnViewSched = new Button();
-            txtRoom = new TextBox();
-            txtSched = new TextBox();
+            txtReserveRoom = new TextBox();
+            txtReserveSched = new TextBox();
             panel2 = new Panel();
+            btnViewReservation = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -59,6 +60,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Maroon;
             label1.Location = new Point(24, 26);
@@ -168,13 +170,15 @@
             // 
             // button6
             // 
+            button6.BackColor = Color.Maroon;
             button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.Location = new Point(578, 393);
+            button6.ForeColor = SystemColors.ButtonHighlight;
+            button6.Location = new Point(578, 403);
             button6.Name = "button6";
             button6.Size = new Size(93, 26);
             button6.TabIndex = 14;
             button6.Text = "CONFIRM";
-            button6.UseVisualStyleBackColor = true;
+            button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
             // 
             // button4
@@ -251,6 +255,7 @@
             btnViewRooms.TabIndex = 22;
             btnViewRooms.Text = "VIEW";
             btnViewRooms.UseVisualStyleBackColor = true;
+            btnViewRooms.Click += btnViewRooms_Click;
             // 
             // btnViewSched
             // 
@@ -260,25 +265,26 @@
             btnViewSched.TabIndex = 23;
             btnViewSched.Text = "VIEW";
             btnViewSched.UseVisualStyleBackColor = true;
+            btnViewSched.Click += btnViewSched_Click;
             // 
-            // txtRoom
+            // txtReserveRoom
             // 
-            txtRoom.Location = new Point(18, 123);
-            txtRoom.Name = "txtRoom";
-            txtRoom.Size = new Size(148, 23);
-            txtRoom.TabIndex = 24;
+            txtReserveRoom.Location = new Point(18, 123);
+            txtReserveRoom.Name = "txtReserveRoom";
+            txtReserveRoom.Size = new Size(148, 23);
+            txtReserveRoom.TabIndex = 24;
             // 
-            // txtSched
+            // txtReserveSched
             // 
-            txtSched.Location = new Point(21, 286);
-            txtSched.Name = "txtSched";
-            txtSched.Size = new Size(151, 23);
-            txtSched.TabIndex = 25;
+            txtReserveSched.Location = new Point(21, 286);
+            txtReserveSched.Name = "txtReserveSched";
+            txtReserveSched.Size = new Size(151, 23);
+            txtReserveSched.TabIndex = 25;
             // 
             // panel2
             // 
-            panel2.Controls.Add(txtSched);
-            panel2.Controls.Add(txtRoom);
+            panel2.Controls.Add(txtReserveSched);
+            panel2.Controls.Add(txtReserveRoom);
             panel2.Controls.Add(btnViewSched);
             panel2.Controls.Add(btnViewRooms);
             panel2.Controls.Add(label9);
@@ -290,12 +296,26 @@
             panel2.Size = new Size(291, 326);
             panel2.TabIndex = 26;
             // 
+            // btnViewReservation
+            // 
+            btnViewReservation.BackColor = Color.Maroon;
+            btnViewReservation.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnViewReservation.ForeColor = SystemColors.ButtonHighlight;
+            btnViewReservation.Location = new Point(291, 404);
+            btnViewReservation.Name = "btnViewReservation";
+            btnViewReservation.Size = new Size(152, 25);
+            btnViewReservation.TabIndex = 21;
+            btnViewReservation.Text = "VIEW RESERVATION";
+            btnViewReservation.UseVisualStyleBackColor = false;
+            btnViewReservation.Click += button1_Click;
+            // 
             // ReservationPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(702, 456);
+            Controls.Add(btnViewReservation);
             Controls.Add(panel2);
             Controls.Add(button4);
             Controls.Add(panel1);
@@ -335,8 +355,9 @@
         private Label label9;
         private Button btnViewRooms;
         private Button btnViewSched;
-        private TextBox txtRoom;
-        private TextBox txtSched;
+        private TextBox txtReserveRoom;
+        private TextBox txtReserveSched;
         private Panel panel2;
+        private Button btnViewReservation;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CITERoomReserveLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CITERoomReserveLogic;
 
 namespace CITERoomReservationForm
 {
@@ -39,10 +41,22 @@ namespace CITERoomReservationForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ViewReservations view = new ViewReservations();
-            view.Show();
-            this.Hide();
+            string user = textUsername.Text;
+            string pass = textPassword.Text;
+
+            if (CITERoomReserve.AdminLogin(user, pass))
+            {
+                MessageBox.Show("Login successful!");
+                ReservationManagement manage = new ReservationManagement();
+                manage.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
+            }
         }
+        
         private void button2_Click(object sender, EventArgs e)
         {
             AdminRegistration register = new AdminRegistration();

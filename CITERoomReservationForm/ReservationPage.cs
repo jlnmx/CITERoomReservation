@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CITERoomReserveLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -84,9 +85,28 @@ namespace CITERoomReservationForm
 
         private void button6_Click(object sender, EventArgs e)
         {
+            string name = textName.Text;
+            string course = txtCourse.Text;
+            string section = txtSection.Text;
+            string professor = textProf.Text;
 
+            CITERoomReserve.AddInfo(name, course, section, professor);
 
+            string room = txtReserveRoom.Text;
+            string dateTime = txtReserveSched.Text;
+
+            bool isReserved = CITERoomReserve.ReserveRoom(room, dateTime);
+
+            if (isReserved)
+            {
+                MessageBox.Show("Room reserved successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to reserve room.");
+            }
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
         }
@@ -115,5 +135,27 @@ namespace CITERoomReservationForm
         {
 
         }
+
+        private void btnViewRooms_Click(object sender, EventArgs e)
+        {
+            List<string> rooms = CITERoomReserve.GetAvailableRooms();
+            string message = string.Join(Environment.NewLine, rooms);
+            MessageBox.Show(message, "Available Rooms");
+        }
+
+        private void btnViewSched_Click(object sender, EventArgs e)
+        {
+            List<string> schedules = CITERoomReserve.GetAvailableSchedules();
+            string message = string.Join(Environment.NewLine, schedules);
+            MessageBox.Show(message, "Available Schedules");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ViewReservations view = new ViewReservations();
+            view.Show();
+            this.Hide();
+        }
     }
 }
+
