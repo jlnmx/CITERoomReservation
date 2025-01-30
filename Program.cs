@@ -13,8 +13,8 @@ namespace room_reservation
                 "Type 'login' to login to your account.",
                 "Type 'add' to fill up information.",
                 "Type 'reserve' to reserve a room or laboratory.",
-                "Type 'view_reservations' to view all reservations.",
-                "Type 'delete_reservation' to delete a reservation.",
+                "Type 'view' to view all reservations.",
+                "Type 'delete' to delete a reservation.",
                 "Type 'exit' if you want to exit."
             };
 
@@ -76,11 +76,11 @@ namespace room_reservation
                         ReserveRoom();
                         break;
 
-                    case "view_reservations":
+                    case "view":
                         ViewReservations();
                         break;
 
-                    case "delete_reservation":
+                    case "delete":
                         DeleteReservation();
                         break;
 
